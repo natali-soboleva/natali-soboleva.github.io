@@ -8,12 +8,13 @@ export async function onRequest({ request, env }) {
   }
 
   const asset = await env.ASSETS.fetch(new Request(request.url, { headers: { 'Accept-Encoding': 'identity' } }));
-  const size = Number(asset.headers.get('Content-Length'));
+  const size = await fileSize(request.url, asset, env);
   const headers = new Headers(asset.headers);
   headers.set('Accept-Ranges', 'bytes');
+  if (size !== null) headers.set('Content-Length', String(size));
 
-  const range = parseRange(request.headers.get('Range'), size);
-  if (!asset.ok || !asset.body || !Number.isFinite(size) || range === null) {
+  const range = size === null ? null : parseRange(request.headers.get('Range'), size);
+  if (!asset.ok || !asset.body || range === null) {
     return new Response(request.method === 'HEAD' ? null : asset.body, { status: asset.status, headers });
   }
   if (range === 'invalid') {
@@ -31,6 +32,18 @@ export async function onRequest({ request, env }) {
     return new Response(null, { status: 206, headers });
   }
   return new Response(slice(asset.body, start, end), { status: 206, headers });
+}
+
+// Размер файла: из заголовка, а если его нет — из video/sizes.json (пишется при сборке)
+async function fileSize(url, asset, env) {
+  const header = asset.headers.get('Content-Length');
+  if (header) return Number(header);
+  if (!asset.ok) return null;
+  const name = decodeURIComponent(new URL(url).pathname.split('/').pop());
+  const res = await env.ASSETS.fetch(new URL('/video/sizes.json', url));
+  if (!res.ok) return null;
+  const sizes = await res.json();
+  return Number.isFinite(sizes[name]) ? sizes[name] : null;
 }
 
 // "bytes=100-199", "bytes=100-", "bytes=-500" → { start, end }; нет заголовка → null
