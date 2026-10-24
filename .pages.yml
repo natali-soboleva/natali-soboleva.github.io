@@ -1,0 +1,135 @@
+# Админка Pages CMS (https://pagescms.org): форма для правки content/site.json, фото и видео.
+# После «Save» изменения сохраняются в GitHub, Cloudflare Pages сам пересобирает сайт (~1–2 минуты).
+
+media:
+  - name: photos
+    label: Фото
+    input: src/assets/photos
+    output: /src/assets/photos
+    extensions: [jpg, jpeg, png, webp]
+  - name: video
+    label: Видео
+    input: public/video
+    output: /video
+    extensions: [mp4, jpg, jpeg]
+
+content:
+  - name: site
+    label: Сайт
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: hero
+        label: Первый экран
+        type: object
+        fields:
+          - { name: name, label: Имя и фамилия, type: string, required: true }
+          - { name: role, label: Подпись под именем, type: string }
+          - { name: motto, label: Девиз, type: text }
+          - { name: photo, label: Фото, type: image, options: { media: photos } }
+          - { name: button, label: Текст кнопки, type: string }
+
+      - name: about
+        label: Обо мне
+        type: object
+        fields:
+          - { name: show, label: Показывать блок, type: boolean }
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Подпись от руки (можно по-английски), type: string }
+          - { name: photo, label: Фото, type: image, options: { media: photos } }
+          - { name: paragraphs, label: Абзацы текста, type: text, list: true }
+
+      - name: directions
+        label: Виды тренировок
+        type: object
+        fields:
+          - { name: show, label: Показывать блок, type: boolean }
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Подпись от руки, type: string }
+          - name: items
+            label: Тренировки
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Название, type: string }
+              - { name: format, label: Формат (например, «в группе»), type: string }
+              - { name: text, label: Описание, type: text }
+
+      - name: process
+        label: Как проходят тренировки
+        type: object
+        fields:
+          - { name: show, label: Показывать блок, type: boolean }
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Подпись от руки, type: string }
+          - name: steps
+            label: Шаги
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Название шага, type: string }
+              - { name: text, label: Описание, type: text }
+          - { name: photos, label: Фото (лучше 3 или 6), type: image, list: true, options: { media: photos } }
+
+      - name: video
+        label: Урок (видео)
+        type: object
+        fields:
+          - { name: show, label: Показывать блок, type: boolean }
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Подпись от руки, type: string }
+          - { name: text, label: Текст рядом с видео, type: text }
+          - name: parts
+            label: Части урока (каждый файл не больше 25 МБ)
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Название кнопки, type: string }
+              - { name: file, label: Видео (mp4), type: file, options: { media: video } }
+              - { name: poster, label: Картинка до запуска (jpg), type: file, options: { media: video } }
+
+      - name: online
+        label: Онлайн-занятия (анонс)
+        type: object
+        fields:
+          - { name: show, label: Показывать блок, type: boolean }
+          - { name: title, label: Заголовок, type: string }
+          - { name: text, label: Текст, type: text }
+
+      - name: certificates
+        label: Сертификаты
+        type: object
+        fields:
+          - { name: show, label: Показывать блок, type: boolean }
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Подпись от руки, type: string }
+          - { name: photos, label: Фото сертификатов, type: image, list: true, options: { media: photos } }
+
+      - name: booking
+        label: Запись
+        type: object
+        fields:
+          - { name: title, label: Заголовок, type: string }
+          - { name: subtitle, label: Подпись от руки, type: string }
+          - { name: text, label: Текст, type: text }
+          - { name: button, label: Текст кнопки, type: string }
+          - { name: quotePhoto, label: Фото рядом, type: image, options: { media: photos } }
+
+      - name: contacts
+        label: Контакты
+        type: object
+        fields:
+          - { name: title, label: Заголовок, type: string }
+          - { name: instagram, label: Instagram (имя без @), type: string, required: true }
+          - { name: gymName, label: Где тренирую — название, type: string }
+          - { name: gymInstagram, label: Instagram зала (имя без @), type: string }
+          - { name: gymAddress, label: Адрес зала, type: string }
+
+      - name: settings
+        label: Настройки
+        type: object
+        fields:
+          - { name: siteUrl, label: Адрес сайта, type: string }
+          - { name: hideFromSearch, label: Скрыть сайт от поисковиков, type: boolean }
+          - { name: blackWhitePhotos, label: Чёрно-белые фото, type: boolean }

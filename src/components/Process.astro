@@ -1,0 +1,49 @@
+---
+// «Как проходят тренировки»: шаги и фото
+import { Image } from 'astro:assets';
+import SectionTitle from './SectionTitle.astro';
+import { content, photo } from '../lib/content';
+
+const { process, hero } = content;
+const imgs = process.photos.map(photo).filter((p) => p !== undefined);
+---
+
+<section id="process" class="bg-sand/60 px-4 py-16 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle title={process.title} subtitle={process.subtitle} />
+    <ol class="mx-auto max-w-md space-y-8 sm:max-w-2xl">
+      {
+        process.steps.map((s, i) => (
+          <li class="flex gap-5">
+            <span class="flex size-10 shrink-0 items-center justify-center rounded-full border border-ink/40 font-display text-xl">
+              {i + 1}
+            </span>
+            <div class="pt-1">
+              <h3 class="font-display text-2xl leading-tight font-medium tracking-[0.04em] uppercase">{s.title}</h3>
+              <p class="mt-1 leading-relaxed">{s.text}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    {
+      imgs.length > 0 && (
+        <div class="-mx-4 mt-14 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0">
+          {imgs.map((img, i) => (
+            <Image
+              src={img}
+              alt={`${hero.name} — фото ${i + 1}`}
+              widths={[320, 480, 640]}
+              sizes="(min-width: 640px) 320px, 70vw"
+              class:list={[
+                'photo aspect-[3/4] w-[70vw] max-w-xs shrink-0 snap-center object-cover sm:w-full sm:max-w-none',
+                i === 1 && 'sm:mt-10',
+              ]}
+            />
+          ))}
+        </div>
+      )
+    }
+  </div>
+</section>

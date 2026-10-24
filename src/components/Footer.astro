@@ -1,0 +1,15 @@
+---
+import { content, instagramProfile } from '../lib/content';
+
+const { hero, contacts } = content;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-line/60 px-4 py-8 text-center text-xs tracking-[0.08em] text-muted">
+  <p>
+    © {year} {hero.name} ·
+    <a href={instagramProfile(contacts.instagram)} target="_blank" rel="noopener" class="underline-offset-4 hover:text-ink hover:underline">
+      @{contacts.instagram}
+    </a>
+  </p>
+</footer>

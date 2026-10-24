@@ -1,0 +1,20 @@
+# Заголовки для Cloudflare Pages
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Файлы сборки: в имени есть отпечаток содержимого — кэш «навсегда»
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Видео: имена без отпечатка — кэш на сутки
+/video/*
+  Cache-Control: public, max-age=86400
+
+# Страница: каждый раз сверяться с сервером, чтобы правки из админки были видны сразу
+/
+  Cache-Control: public, max-age=0, must-revalidate

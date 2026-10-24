@@ -1,0 +1,30 @@
+---
+// Шапка: имя и ссылки на блоки страницы. Ссылка появляется, только если блок включён.
+import { content } from '../lib/content';
+
+const { hero, about, directions, video, certificates, contacts } = content;
+const links = [
+  about.show && { href: '/#about', label: 'Обо мне' },
+  directions.show && { href: '/#trainings', label: 'Тренировки' },
+  video.show && { href: '/#video', label: 'Урок' },
+  certificates.show && { href: '/#certificates', label: 'Сертификаты' },
+  { href: '/#contacts', label: contacts.title },
+].filter(Boolean) as { href: string; label: string }[];
+---
+
+<header class="sticky top-0 z-40 border-b border-line/60 bg-milk/90 backdrop-blur">
+  <nav class="mx-auto flex h-14 max-w-5xl items-center justify-center px-4 sm:justify-between sm:px-6" aria-label="Разделы">
+    <a href="/" class="hidden font-display text-lg tracking-[0.18em] uppercase sm:block">{hero.name}</a>
+    <ul class="flex items-center gap-x-4 text-[0.7rem] tracking-[0.14em] text-muted uppercase min-[380px]:gap-x-5 sm:gap-x-7 sm:text-xs">
+      {
+        links.map((l) => (
+          <li>
+            <a href={l.href} class="py-3 transition-colors hover:text-ink">
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,34 @@
+---
+// «Обо мне»: фото и пара абзацев
+import { Image } from 'astro:assets';
+import SectionTitle from './SectionTitle.astro';
+import { content, photo } from '../lib/content';
+
+const { about, hero } = content;
+const img = photo(about.photo);
+---
+
+<section id="about" class="bg-paper px-4 py-16 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle title={about.title} subtitle={about.subtitle} />
+    <div class="grid items-center gap-10 md:grid-cols-2 md:gap-16">
+      {
+        img && (
+          <div class="relative mx-auto w-full max-w-sm">
+            <div class="absolute -inset-3 rounded-full border border-line" aria-hidden="true" />
+            <Image
+              src={img}
+              alt={hero.name}
+              widths={[400, 640, 800]}
+              sizes="(min-width: 768px) 384px, 90vw"
+              class="photo relative aspect-[3/4] w-full rounded-full object-cover object-top"
+            />
+          </div>
+        )
+      }
+      <div class="space-y-5 text-center text-[1.05rem] leading-relaxed md:text-left">
+        {about.paragraphs.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </div>
+</section>

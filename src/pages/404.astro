@@ -1,0 +1,14 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout title="Страница не найдена" notFound>
+  <section class="px-4 py-24 text-center">
+    <p class="font-display text-7xl font-light">404</p>
+    <h1 class="mt-4 font-display text-3xl font-light tracking-[0.06em] uppercase">Страница не найдена</h1>
+    <div class="mt-10">
+      <Button href="/" variant="oval">На главную</Button>
+    </div>
+  </section>
+</BaseLayout>

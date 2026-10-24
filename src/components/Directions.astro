@@ -1,0 +1,31 @@
+---
+// Виды тренировок: нумерованный список 01, 02… (как на референсе с йогой)
+import Button from './Button.astro';
+import SectionTitle from './SectionTitle.astro';
+import { content, instagramDirect } from '../lib/content';
+
+const { directions, contacts, hero } = content;
+const num = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<section id="trainings" class="px-4 py-16 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-5xl">
+    <SectionTitle title={directions.title} subtitle={directions.subtitle} />
+    <ol class="mx-auto grid max-w-md gap-12 sm:max-w-none sm:grid-cols-2 sm:gap-x-12 sm:gap-y-14">
+      {
+        directions.items.map((d, i) => (
+          <li class="text-center sm:text-left">
+            <span class="font-display text-5xl font-light text-taupe">{num(i)}</span>
+            <h3 class="mt-2 font-display text-[1.7rem] leading-tight font-medium tracking-[0.04em] uppercase">{d.title}</h3>
+            {d.format && <p class="mt-1 text-xs tracking-[0.16em] text-muted uppercase">{d.format}</p>}
+            <div class="mx-auto mt-4 h-px w-12 bg-line sm:mx-0" aria-hidden="true" />
+            <p class="mt-4 leading-relaxed">{d.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="mt-14 text-center">
+      <Button href={instagramDirect(contacts.instagram)} external variant="oval">{hero.button}</Button>
+    </div>
+  </div>
+</section>

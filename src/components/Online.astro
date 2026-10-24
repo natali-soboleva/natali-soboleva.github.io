@@ -1,0 +1,13 @@
+---
+// «Онлайн-занятия» — короткий анонс (включается в админке)
+import { content } from '../lib/content';
+
+const { online } = content;
+---
+
+<section id="online" class="px-4 pb-16 sm:px-6 sm:pb-24">
+  <div class="mx-auto max-w-2xl border border-line px-6 py-10 text-center sm:px-12">
+    <h2 class="font-display text-3xl font-light tracking-[0.06em] uppercase sm:text-4xl">{online.title}</h2>
+    <p class="mt-4 leading-relaxed">{online.text}</p>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+---
+// Урок растяжки: один плеер и кнопки частей. Видео не грузится, пока его не включат.
+import SectionTitle from './SectionTitle.astro';
+import { content } from '../lib/content';
+
+const { video } = content;
+const parts = video.parts.filter((p) => p.file);
+const first = parts[0];
+---
+
+{
+  first && (
+    <section id="video" class="px-4 py-16 sm:px-6 sm:py-24">
+      <div class="mx-auto max-w-5xl">
+        <SectionTitle title={video.title} subtitle={video.subtitle} />
+        <div class="mx-auto grid max-w-md items-center gap-8 md:max-w-none md:grid-cols-[minmax(0,22rem)_1fr] md:gap-14">
+          <video
+            id="lesson-player"
+            class="mx-auto aspect-[9/16] w-full max-w-[22rem] bg-ink object-cover"
+            src={first.file}
+            poster={first.poster || undefined}
+            controls
+            playsinline
+            preload="none"
+          />
+          <div class="text-center md:text-left">
+            {video.text && <p class="leading-relaxed">{video.text}</p>}
+            {parts.length > 1 && (
+              <div class="mt-8 flex flex-wrap justify-center gap-3 md:justify-start" role="group" aria-label="Части урока">
+                {parts.map((p, i) => (
+                  <button
+                    type="button"
+                    data-src={p.file}
+                    data-poster={p.poster}
+                    aria-pressed={i === 0 ? 'true' : 'false'}
+                    class="lesson-part min-h-11 rounded-full border border-ink/40 px-5 text-sm tracking-[0.1em] uppercase transition-colors hover:border-ink aria-pressed:border-taupe aria-pressed:bg-taupe aria-pressed:text-paper"
+                  >
+                    {p.title}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  const player = document.getElementById('lesson-player') as HTMLVideoElement | null;
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.lesson-part');
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      if (!player || !btn.dataset.src) return;
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+      player.poster = btn.dataset.poster ?? '';
+      player.src = btn.dataset.src;
+      player.play().catch(() => {});
+    });
+  });
+  // Часть закончилась — сразу включаем следующую
+  player?.addEventListener('ended', () => {
+    const list = Array.from(buttons);
+    const next = list[list.findIndex((b) => b.getAttribute('aria-pressed') === 'true') + 1];
+    next?.click();
+  });
+</script>

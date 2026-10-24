@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "name": "Наталья Соболева",
+    "role": "тренер тренажёрного зала",
+    "motto": "Возможно всё. Просто на невозможное нужно больше времени!",
+    "photo": "/src/assets/photos/hero.jpg",
+    "button": "Записаться"
+  },
+  "about": {
+    "show": true,
+    "title": "Обо мне",
+    "subtitle": "about me",
+    "photo": "/src/assets/photos/portrait-smile.jpg",
+    "paragraphs": [
+      "Привет! Меня зовут Наталья, я тренер тренажёрного зала в фитнес-клубе SportFamily в Витебске.",
+      "Помогу подобрать тренировки под вашу цель и уровень подготовки — и тем, кто только начинает, и тем, кто занимается давно."
+    ]
+  },
+  "directions": {
+    "show": true,
+    "title": "Тренировки",
+    "subtitle": "work with me",
+    "items": [
+      {
+        "title": "Персональные тренировки",
+        "format": "в зале, один на один",
+        "text": "Программа под вашу цель, уровень подготовки и самочувствие. Тренер рядом на каждом упражнении и следит за техникой."
+      },
+      {
+        "title": "Сплит-тренировки",
+        "format": "в зале, вдвоём",
+        "text": "Занятие с тренером на двоих — с подругой, другом или партнёром. Внимание тренера к каждому, а вместе заниматься веселее."
+      },
+      {
+        "title": "Stretching",
+        "format": "в группе",
+        "text": "Растяжка для гибкости, подвижности суставов и лёгкости в теле. Хорошо снимает напряжение после рабочего дня."
+      },
+      {
+        "title": "Силовой тренинг",
+        "format": "в группе",
+        "text": "Упражнения с собственным весом и отягощениями — для силы, тонуса и подтянутого тела."
+      }
+    ]
+  },
+  "process": {
+    "show": true,
+    "title": "Как проходят тренировки",
+    "subtitle": "step by step",
+    "steps": [
+      {
+        "title": "Знакомство",
+        "text": "Напишите мне в Instagram: расскажите о цели, опыте и самочувствии."
+      },
+      {
+        "title": "Формат и время",
+        "text": "Вместе выберем подходящую тренировку и удобное время."
+      },
+      {
+        "title": "Тренировки",
+        "text": "Занимаемся в зале, шаг за шагом двигаясь к вашей цели."
+      }
+    ],
+    "photos": [
+      "/src/assets/photos/training-1.jpg",
+      "/src/assets/photos/training-2.jpg",
+      "/src/assets/photos/training-3.jpg"
+    ]
+  },
+  "video": {
+    "show": true,
+    "title": "Урок растяжки",
+    "subtitle": "stretching",
+    "text": "Позанимайтесь вместе со мной дома: постелите коврик и включайте урок по порядку — от первой части к последней.",
+    "parts": [
+      { "title": "Часть 1", "file": "/video/lesson-1.mp4", "poster": "/video/lesson-1.jpg" },
+      { "title": "Часть 2", "file": "/video/lesson-2.mp4", "poster": "/video/lesson-2.jpg" },
+      { "title": "Часть 3", "file": "/video/lesson-3.mp4", "poster": "/video/lesson-3.jpg" },
+      { "title": "Часть 4", "file": "/video/lesson-4.mp4", "poster": "/video/lesson-4.jpg" },
+      { "title": "Часть 5", "file": "/video/lesson-5.mp4", "poster": "/video/lesson-5.jpg" }
+    ]
+  },
+  "online": {
+    "show": false,
+    "title": "Онлайн-занятия",
+    "text": "Скоро — онлайн-уроки по растяжке. Следите за новостями в Instagram."
+  },
+  "certificates": {
+    "show": false,
+    "title": "Сертификаты",
+    "subtitle": "certificates",
+    "photos": []
+  },
+  "booking": {
+    "title": "Записаться",
+    "subtitle": "let's train",
+    "text": "Напишите мне в Instagram — обсудим цель, формат и удобное время.",
+    "button": "Написать в Instagram",
+    "quotePhoto": "/src/assets/photos/portrait-profile.jpg"
+  },
+  "contacts": {
+    "title": "Контакты",
+    "instagram": "natali_soboleva18",
+    "gymName": "Фитнес-клуб SportFamily",
+    "gymInstagram": "sportfamily.vtb",
+    "gymAddress": "Витебск, ул. Строителей, 15Г"
+  },
+  "settings": {
+    "siteUrl": "https://natali-soboleva.pages.dev",
+    "hideFromSearch": true,
+    "blackWhitePhotos": true
+  }
+}

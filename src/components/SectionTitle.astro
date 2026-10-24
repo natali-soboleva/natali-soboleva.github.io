@@ -1,0 +1,24 @@
+---
+// Заголовок блока: крупные тонкие буквы + подпись «от руки» (как на референсах).
+// align="auto" — по центру на телефоне, слева на компьютере
+interface Props {
+  title: string;
+  subtitle?: string;
+  align?: 'center' | 'auto';
+}
+const { title, subtitle, align = 'center' } = Astro.props;
+const auto = align === 'auto';
+---
+
+<div class:list={['mb-10 text-center sm:mb-14', auto && 'md:text-left']}>
+  <h2 class="font-display text-[2.6rem] leading-none font-light tracking-[0.06em] uppercase sm:text-6xl">
+    {title}
+  </h2>
+  {
+    subtitle && (
+      <p class:list={['font-script -mt-1 translate-x-10 text-2xl text-taupe sm:translate-x-16 sm:text-3xl', auto && 'md:translate-x-24']}>
+        {subtitle}
+      </p>
+    )
+  }
+</div>

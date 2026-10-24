@@ -1,0 +1,55 @@
+---
+// Первый экран: имя, подпись, фото, девиз и кнопка «Записаться»
+import { Image } from 'astro:assets';
+import Button from './Button.astro';
+import Sparkle from './Sparkle.astro';
+import { content, instagramDirect, photo } from '../lib/content';
+
+const { hero, contacts } = content;
+const img = photo(hero.photo);
+const [first, ...rest] = hero.name.split(' ');
+---
+
+<section class="relative overflow-hidden px-4 pt-10 pb-16 sm:px-6 sm:pt-16 sm:pb-24">
+  <div class="mx-auto grid max-w-5xl items-center gap-10 md:grid-cols-[1fr_1.05fr] md:gap-14">
+    <div class="relative text-center md:order-1 md:text-left">
+      <Sparkle class="absolute -top-4 left-2 w-7 md:-left-6" />
+      <h1 class="font-display text-[3.3rem] leading-[0.95] font-light tracking-[0.08em] uppercase min-[400px]:text-6xl sm:text-7xl lg:text-[5.5rem]">
+        <span class="block">{first}</span>
+        <span class="block">{rest.join(' ')}</span>
+      </h1>
+      <p class="font-script mt-3 text-[1.7rem] text-taupe sm:text-3xl">{hero.role}</p>
+
+      <p class="mx-auto mt-8 hidden max-w-sm font-display text-2xl leading-snug italic md:mx-0 md:block">
+        «{hero.motto}»
+      </p>
+      <div class="mt-10 hidden md:block">
+        <Button href={instagramDirect(contacts.instagram)} external>{hero.button}</Button>
+      </div>
+    </div>
+
+    <div class="relative md:order-2">
+      {
+        img && (
+          <Image
+            src={img}
+            alt={`${hero.name}, ${hero.role}`}
+            widths={[480, 720, 960, 1200]}
+            sizes="(min-width: 768px) 480px, 100vw"
+            loading="eager"
+            fetchpriority="high"
+            class="photo mx-auto aspect-[4/5] w-full max-w-md rounded-t-full object-cover object-[50%_20%] md:max-w-none"
+          />
+        )
+      }
+      <Sparkle class="absolute right-3 -bottom-5 w-9 sm:right-8" />
+    </div>
+
+    <div class="text-center md:hidden">
+      <p class="mx-auto max-w-xs font-display text-[1.45rem] leading-snug italic">«{hero.motto}»</p>
+      <div class="mt-8">
+        <Button href={instagramDirect(contacts.instagram)} external class="w-full max-w-xs">{hero.button}</Button>
+      </div>
+    </div>
+  </div>
+</section>

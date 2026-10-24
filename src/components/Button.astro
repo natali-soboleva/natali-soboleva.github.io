@@ -1,0 +1,49 @@
+---
+// Кнопка-ссылка. solid — заливка (главное действие), oval — текст в тонком овале (второстепенное)
+interface Props {
+  href: string;
+  variant?: 'solid' | 'oval';
+  external?: boolean;
+  class?: string;
+}
+const { href, variant = 'solid', external = false, class: className } = Astro.props;
+const ext = external ? { target: '_blank', rel: 'noopener' } : {};
+---
+
+{
+  variant === 'solid' ? (
+    <a
+      href={href}
+      {...ext}
+      class:list={[
+        'inline-flex min-h-12 items-center justify-center rounded-full bg-taupe px-8 py-3 text-center text-sm font-normal tracking-[0.14em] text-paper uppercase transition-colors hover:bg-taupe-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-taupe',
+        className,
+      ]}
+    >
+      <slot />
+    </a>
+  ) : (
+    <a
+      href={href}
+      {...ext}
+      class:list={[
+        'group relative inline-flex min-h-16 items-center justify-center px-12 py-5 text-center font-display text-xl tracking-[0.12em] uppercase focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-taupe',
+        className,
+      ]}
+    >
+      <svg
+        class="pointer-events-none absolute inset-0 h-full w-full overflow-visible text-ink/60 transition-transform duration-500 group-hover:rotate-2"
+        viewBox="0 0 200 64"
+        preserveAspectRatio="none"
+        fill="none"
+        aria-hidden="true"
+      >
+        <ellipse cx="100" cy="32" rx="98" ry="27" stroke="currentColor" stroke-width="0.8" vector-effect="non-scaling-stroke" transform="rotate(-4 100 32)" />
+        <ellipse cx="100" cy="32" rx="94" ry="30" stroke="currentColor" stroke-width="0.8" vector-effect="non-scaling-stroke" transform="rotate(3 100 32)" />
+      </svg>
+      <span class="relative">
+        <slot />
+      </span>
+    </a>
+  )
+}

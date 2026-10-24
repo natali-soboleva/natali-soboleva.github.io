@@ -1,0 +1,11 @@
+---
+// Тонкая четырёхлучевая звёздочка — украшение (как на 1-м референсе)
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg class:list={['pointer-events-none text-ink/50', className]} viewBox="0 0 40 40" fill="none" aria-hidden="true">
+  <path d="M20 0 C21 15 25 19 40 20 C25 21 21 25 20 40 C19 25 15 21 0 20 C15 19 19 15 20 0 Z" fill="currentColor" opacity="0.55" />
+</svg>
