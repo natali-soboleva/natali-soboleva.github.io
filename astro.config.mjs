@@ -27,5 +27,8 @@ export default defineConfig({
   trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()],
+    // Скрипты — отдельными файлами, а не внутри страницы: так работает защитный заголовок
+    // Content-Security-Policy в public/_headers (разрешает только скрипты с самого сайта)
+    build: { assetsInlineLimit: 0 },
   },
 });
