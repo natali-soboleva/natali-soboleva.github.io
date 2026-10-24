@@ -32,7 +32,9 @@
 - Фото — `src/assets/photos/` (Astro сам делает WebP нужных размеров). Путь в site.json:
   `/src/assets/photos/имя.jpg`. Чёрно-белые — настройка `settings.blackWhitePhotos` (CSS-фильтр).
 - Видео-урок — 5 частей в `public/video/lesson-N.mp4` + обложки `lesson-N.jpg`.
-  Лимит Cloudflare Pages — 25 МБ на файл; части сжаты до ~23 МБ (540×960).
+  Лимит Cloudflare Pages — 25 МБ на файл; части сжаты до ~24 МБ (540×960).
+- Cloudflare Pages отдаёт файлы только целиком (без HTTP Range) — iPhone такое видео не
+  играет. Поэтому `/video/*` отдаёт `functions/video/[[path]].js` (кусками, ответ 206).
 - Исходники (все 311 фото с wfolio, видео 2,6 ГБ) — `_source/`, в git не хранятся.
 
 ## Порядок работы
