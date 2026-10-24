@@ -1,8 +1,11 @@
 # Заголовки для Cloudflare Pages
 
+# X-Robots-Tag: пока сайт черновик, поисковики не берут ни страницу, ни фото, ни видео.
+# Убрать эту строку вместе с галочкой «Скрыть сайт от поисковиков» (см. HANDOFF.md)
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
+  X-Robots-Tag: noindex, noimageindex
 
 # Файлы сборки: в имени есть отпечаток содержимого — кэш «навсегда»
 /_astro/*

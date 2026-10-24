@@ -132,4 +132,6 @@ content:
         fields:
           - { name: siteUrl, label: Адрес сайта, type: string }
           - { name: hideFromSearch, label: Скрыть сайт от поисковиков, type: boolean }
+          - { name: draftNotice, label: Показывать плашку «Черновик» вверху, type: boolean }
+          - { name: draftNoticeText, label: Текст плашки, type: text }
           - { name: blackWhitePhotos, label: Чёрно-белые фото, type: boolean }

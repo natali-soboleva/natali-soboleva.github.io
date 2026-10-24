@@ -108,6 +108,8 @@
   "settings": {
     "siteUrl": "https://natali-soboleva.pages.dev",
     "hideFromSearch": true,
+    "draftNotice": true,
+    "draftNoticeText": "Черновик сайта, подготовлен в подарок. Пока не опубликован: тексты и фото ещё согласовываются с Натальей.",
     "blackWhitePhotos": true
   }
 }

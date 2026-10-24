@@ -50,6 +50,13 @@ const ogImage = new URL('/og-image.jpg', Astro.site).href;
     >
       Перейти к содержимому
     </a>
+    {
+      settings.draftNotice && settings.draftNoticeText && (
+        <div role="note" class="bg-taupe-dark px-4 py-2 text-center text-xs leading-snug font-normal text-paper sm:text-sm">
+          {settings.draftNoticeText}
+        </div>
+      )
+    }
     <Header />
     <main id="content" class="flex-1">
       <slot />
