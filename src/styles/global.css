@@ -95,6 +95,11 @@
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;
   }
+  /* Страница никогда не сдвигается вбок на телефоне, даже если что-то вылезло за край */
+  html,
+  body {
+    overflow-x: clip;
+  }
   .font-display {
     font-variant-numeric: lining-nums;
   }
