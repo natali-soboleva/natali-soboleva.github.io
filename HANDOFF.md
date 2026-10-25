@@ -10,9 +10,10 @@
 ## Нужно решить / сделать до подарка
 - [x] Код: GitHub-организация `natali-soboleva` (владелец — Zer0Tw002), приватный репозиторий `site`.
       После подарка организацию передать Наталье (сделать её владельцем организации).
-- [x] Хостинг: Cloudflare Pages владельца проекта, проект `natali-soboleva`,
-      адрес https://natali-soboleva.pages.dev (совпадает с `settings.siteUrl`).
-      После подарка — перенести в Cloudflare Натальи (новый проект; имя освободить, удалив старый).
+- [x] Хостинг был Cloudflare Pages (natali-soboleva.pages.dev) — у МТС в Беларуси *.pages.dev заблокирован.
+- [ ] Переезд на GitHub Pages: репозиторий переименовать в `natali-soboleva.github.io`, сделать публичным,
+      Settings → Pages → Source: GitHub Actions. Адрес: https://natali-soboleva.github.io
+- [ ] После переезда: отключить проект в Cloudflare, удалить `functions/` и `public/_headers`.
 - [x] Видео отдаётся кусками (перемотка, iPhone) — `functions/video/[[path]].js`.
 - [x] Pages CMS подключена к организации `natali-soboleva` (app.pagescms.org, вход через GitHub
       владельца проекта), форма «Сайт» открывается.

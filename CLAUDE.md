@@ -17,11 +17,11 @@
 - Зал: фитнес-клуб SportFamily (@sportfamily.vtb), Витебск, ул. Строителей, 15Г.
 - Девиз (из её Instagram): «Возможно всё. Просто на невозможное нужно больше времени!»
 - Пока только фото, где она одна. Групповые фото из зала добавятся позже.
-- Цен на сайте нет — всё в переписке. Только русский язык. Адрес — бесплатный *.pages.dev.
+- Цен на сайте нет — всё в переписке. Только русский язык. Адрес — бесплатный https://natali-soboleva.github.io (у МТС в Беларуси *.pages.dev заблокирован).
 - ИП нет, работает в зале.
 
 ## Стек
-- Astro + Tailwind CSS, статический сайт. Хостинг — Cloudflare Pages, код — GitHub.
+- Astro + Tailwind CSS, статический сайт. Хостинг — GitHub Pages (сборка: .github/workflows/deploy.yml), код — GitHub `natali-soboleva/natali-soboleva.github.io` (публичный — иначе Pages платный).
 - Админка — Pages CMS (pagescms.org), настройки в `.pages.yml`. Вход по email.
 - Всё содержимое — в `content/site.json`. Тексты в компоненты не вписывать.
 - Не добавлять библиотеки, сервисы, аналитику без согласования с владельцем.
@@ -32,9 +32,9 @@
 - Фото — `src/assets/photos/` (Astro сам делает WebP нужных размеров). Путь в site.json:
   `/src/assets/photos/имя.jpg`. Чёрно-белые — настройка `settings.blackWhitePhotos` (CSS-фильтр).
 - Видео-урок — 5 частей в `public/video/lesson-N.mp4` + обложки `lesson-N.jpg`.
-  Лимит Cloudflare Pages — 25 МБ на файл; части сжаты до ~24 МБ (540×960).
-- Cloudflare Pages отдаёт файлы только целиком (без HTTP Range) — iPhone такое видео не
-  играет. Поэтому `/video/*` отдаёт `functions/video/[[path]].js` (кусками, ответ 206).
+  Части сжаты до ~24 МБ (540×960): лимит Cloudflare Pages 25 МБ, у GitHub — 100 МБ на файл.
+- `functions/` и `public/_headers` — только для старой версии на Cloudflare Pages (GitHub Pages их не
+  использует; сам отдаёт видео кусками). Удалить, когда Cloudflare-проект отключим.
 - Исходники (все 311 фото с wfolio, видео 2,6 ГБ) — `_source/`, в git не хранятся.
 
 ## Порядок работы
