@@ -1,6 +1,6 @@
 ---
 // «Как проходят тренировки»: шаги и фото
-import { Image } from 'astro:assets';
+import Gallery from './Gallery.astro';
 import SectionTitle from './SectionTitle.astro';
 import { content, photo } from '../lib/content';
 
@@ -27,23 +27,6 @@ const imgs = process.photos.map(photo).filter((p) => p !== undefined);
       }
     </ol>
 
-    {
-      imgs.length > 0 && (
-        <div class="-mx-4 mt-14 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0">
-          {imgs.map((img, i) => (
-            <Image
-              src={img}
-              alt={`${hero.name} — фото ${i + 1}`}
-              widths={[320, 480, 640]}
-              sizes="(min-width: 640px) 320px, 70vw"
-              class:list={[
-                'photo aspect-[3/4] w-[70vw] max-w-xs shrink-0 snap-center object-cover sm:w-full sm:max-w-none',
-                i === 1 && 'sm:mt-10',
-              ]}
-            />
-          ))}
-        </div>
-      )
-    }
+    {imgs.length > 0 && <Gallery images={imgs} alt={hero.name} />}
   </div>
 </section>

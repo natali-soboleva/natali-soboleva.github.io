@@ -1,7 +1,7 @@
 ---
 // Виды тренировок: нумерованный список 01, 02… (как на референсе с йогой)
-import { Image } from 'astro:assets';
 import Button from './Button.astro';
+import Gallery from './Gallery.astro';
 import SectionTitle from './SectionTitle.astro';
 import { content, instagramDirect, photo } from '../lib/content';
 
@@ -26,24 +26,7 @@ const num = (i: number) => String(i + 1).padStart(2, '0');
         ))
       }
     </ol>
-    {
-      imgs.length > 0 && (
-        <div class="-mx-4 mt-14 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:px-0">
-          {imgs.map((img, i) => (
-            <Image
-              src={img}
-              alt={`${hero.name} — фото ${i + 1}`}
-              widths={[320, 480, 640]}
-              sizes="(min-width: 640px) 320px, 70vw"
-              class:list={[
-                'photo aspect-[3/4] w-[70vw] max-w-xs shrink-0 snap-center rounded-t-full object-cover object-top sm:w-full sm:max-w-none',
-                i === 1 && 'sm:mt-10',
-              ]}
-            />
-          ))}
-        </div>
-      )
-    }
+    {imgs.length > 0 && <Gallery images={imgs} alt={hero.name} arch />}
     <div class="mt-14 text-center">
       <Button href={instagramDirect(contacts.instagram)} external variant="oval">{hero.button}</Button>
     </div>

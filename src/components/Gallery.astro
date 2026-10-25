@@ -1,0 +1,32 @@
+---
+// Фото блока без перелистывания. Телефон: первое фото на всю ширину, остальные по два в ряд.
+// Компьютер: три в ряд, среднее чуть ниже.
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  images: ImageMetadata[];
+  alt: string;
+  arch?: boolean; // верх фото аркой
+}
+const { images, alt, arch = false } = Astro.props;
+---
+
+<div class="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+  {
+    images.map((img, i) => (
+      <Image
+        src={img}
+        alt={`${alt} — фото ${i + 1}`}
+        widths={[320, 480, 640, 960]}
+        sizes={i === 0 ? '(min-width: 640px) 320px, 92vw' : '(min-width: 640px) 320px, 46vw'}
+        class:list={[
+          'photo aspect-[3/4] w-full object-cover object-top',
+          arch && 'rounded-t-full',
+          i === 0 && 'col-span-2 aspect-[4/5] sm:col-span-1 sm:aspect-[3/4]',
+          i === 1 && 'sm:mt-10',
+        ]}
+      />
+    ))
+  }
+</div>

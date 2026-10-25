@@ -32,7 +32,8 @@ const [first, ...rest] = hero.name.split(' ');
           <Image
             src={img}
             alt={`${hero.name}, ${hero.role}`}
-            widths={[480, 720, 960, 1200]}
+            widths={[480, 720, 960, 1263]}
+            quality={90}
             sizes="(min-width: 768px) 480px, 100vw"
             loading="eager"
             fetchpriority="high"
