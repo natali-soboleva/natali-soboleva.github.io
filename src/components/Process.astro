@@ -27,6 +27,6 @@ const imgs = process.photos.map(photo).filter((p) => p !== undefined);
       }
     </ol>
 
-    {imgs.length > 0 && <Gallery images={imgs} alt={hero.name} />}
+    {imgs.length > 0 && <Gallery images={imgs} alt={hero.name} rounded />}
   </div>
 </section>
