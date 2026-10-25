@@ -17,13 +17,13 @@ const photo = await sharp(heroPath)
 
 const text = Buffer.from(`
 <svg width="680" height="630" xmlns="http://www.w3.org/2000/svg">
-  <rect width="680" height="630" fill="#F4F0EA"/>
-  <text x="70" y="270" font-family="Georgia, serif" font-size="72" letter-spacing="6" fill="#23201D">${first.toUpperCase()}</text>
-  <text x="70" y="355" font-family="Georgia, serif" font-size="72" letter-spacing="6" fill="#23201D">${rest.join(' ').toUpperCase()}</text>
-  <text x="72" y="420" font-family="Georgia, serif" font-style="italic" font-size="34" fill="#6E6157">${role}</text>
+  <rect width="680" height="630" fill="#F1ECF6"/>
+  <text x="70" y="270" font-family="Georgia, serif" font-size="72" letter-spacing="6" fill="#26202C">${first.toUpperCase()}</text>
+  <text x="70" y="355" font-family="Georgia, serif" font-size="72" letter-spacing="6" fill="#26202C">${rest.join(' ').toUpperCase()}</text>
+  <text x="72" y="420" font-family="Georgia, serif" font-style="italic" font-size="34" fill="#6F5A82">${role}</text>
 </svg>`);
 
-await sharp({ create: { width: 1200, height: 630, channels: 3, background: '#F4F0EA' } })
+await sharp({ create: { width: 1200, height: 630, channels: 3, background: '#F1ECF6' } })
   .composite([
     { input: text, left: 0, top: 0 },
     { input: photo, left: 680, top: 0 },

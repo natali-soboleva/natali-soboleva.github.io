@@ -15,7 +15,7 @@ const imgs = (certificates.photos as string[]).map(photo).filter((p) => p !== un
         <SectionTitle title={certificates.title} subtitle={certificates.subtitle} />
         <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-5">
           {imgs.map((img, i) => (
-            <a href={img.src} target="_blank" rel="noopener" class="block border border-line bg-milk p-2">
+            <a href={img.src} target="_blank" rel="noopener" class="block border border-line bg-lilac p-2">
               <Image src={img} alt={`Сертификат ${i + 1}`} widths={[320, 640]} sizes="(min-width: 640px) 300px, 45vw" class="w-full" />
             </a>
           ))}

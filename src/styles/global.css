@@ -70,18 +70,18 @@
 }
 
 /* ---------- Цвета и шрифты для Tailwind ----------
-   Светлая минималистичная гамма: молочный фон, графитовый текст, тёплый серо-коричневый акцент.
-   Классы: bg-milk, text-ink, bg-taupe, font-display, font-script и т.д. */
+   Светлая минималистичная гамма: светло-фиолетовый фон, тёмный текст, приглушённый сливовый акцент.
+   Классы: bg-lilac, text-ink, bg-plum, font-display, font-script и т.д. */
 
 @theme {
-  --color-milk: #F4F0EA;
-  --color-paper: #FBF9F6;
-  --color-sand: #E7E0D6;
-  --color-line: #CFC6BA;
-  --color-ink: #23201D;
-  --color-muted: #6A625A;
-  --color-taupe: #6E6157;
-  --color-taupe-dark: #564B42;
+  --color-lilac: #F1ECF6;
+  --color-paper: #F9F6FB;
+  --color-sand: #E7DEF0;
+  --color-line: #CFC3DC;
+  --color-ink: #26202C;
+  --color-muted: #675D70;
+  --color-plum: #6F5A82;
+  --color-plum-dark: #574569;
 
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Cormorant', Georgia, 'Times New Roman', serif;
@@ -90,7 +90,7 @@
 
 @layer base {
   html {
-    background-color: var(--color-milk);
+    background-color: var(--color-lilac);
     color: var(--color-ink);
     scroll-behavior: smooth;
     scroll-padding-top: 4rem;

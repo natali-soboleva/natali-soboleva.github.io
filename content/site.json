@@ -2,7 +2,7 @@
   "hero": {
     "name": "Наталья Соболева",
     "role": "тренер тренажёрного зала",
-    "motto": "Возможно всё. Просто на невозможное нужно больше времени!",
+    "motto": "",
     "photo": "/src/assets/photos/hero.jpg",
     "button": "Записаться"
   },
@@ -10,7 +10,7 @@
     "show": true,
     "title": "Обо мне",
     "subtitle": "about me",
-    "photo": "/src/assets/photos/portrait-smile.jpg",
+    "photo": "/src/assets/photos/about-profile.jpg",
     "paragraphs": [
       "Привет! Меня зовут Наталья, я тренер тренажёрного зала в фитнес-клубе SportFamily в Витебске.",
       "Помогу подобрать тренировки под вашу цель и уровень подготовки — и тем, кто только начинает, и тем, кто занимается давно."
@@ -41,6 +41,11 @@
         "format": "в группе",
         "text": "Упражнения с собственным весом и отягощениями — для силы, тонуса и подтянутого тела."
       }
+    ],
+    "photos": [
+      "/src/assets/photos/trainings-1.jpg",
+      "/src/assets/photos/trainings-2.jpg",
+      "/src/assets/photos/trainings-3.jpg"
     ]
   },
   "process": {
@@ -73,11 +78,31 @@
     "subtitle": "stretching",
     "text": "Позанимайтесь вместе со мной дома: постелите коврик и включайте урок по порядку — от первой части к последней.",
     "parts": [
-      { "title": "Часть 1", "file": "/video/lesson-1.mp4", "poster": "/video/lesson-1.jpg" },
-      { "title": "Часть 2", "file": "/video/lesson-2.mp4", "poster": "/video/lesson-2.jpg" },
-      { "title": "Часть 3", "file": "/video/lesson-3.mp4", "poster": "/video/lesson-3.jpg" },
-      { "title": "Часть 4", "file": "/video/lesson-4.mp4", "poster": "/video/lesson-4.jpg" },
-      { "title": "Часть 5", "file": "/video/lesson-5.mp4", "poster": "/video/lesson-5.jpg" }
+      {
+        "title": "Часть 1",
+        "file": "/video/lesson-1.mp4",
+        "poster": "/video/lesson-1.jpg"
+      },
+      {
+        "title": "Часть 2",
+        "file": "/video/lesson-2.mp4",
+        "poster": "/video/lesson-2.jpg"
+      },
+      {
+        "title": "Часть 3",
+        "file": "/video/lesson-3.mp4",
+        "poster": "/video/lesson-3.jpg"
+      },
+      {
+        "title": "Часть 4",
+        "file": "/video/lesson-4.mp4",
+        "poster": "/video/lesson-4.jpg"
+      },
+      {
+        "title": "Часть 5",
+        "file": "/video/lesson-5.mp4",
+        "poster": "/video/lesson-5.jpg"
+      }
     ]
   },
   "online": {
@@ -109,7 +134,7 @@
     "siteUrl": "https://natali-soboleva.pages.dev",
     "hideFromSearch": true,
     "draftNotice": true,
-    "draftNoticeText": "Черновик сайта, подготовлен в подарок. Пока не опубликован: тексты и фото ещё согласовываются с Натальей.",
-    "blackWhitePhotos": true
+    "draftNoticeText": "Черновик сайта",
+    "blackWhitePhotos": false
   }
 }

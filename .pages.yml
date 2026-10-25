@@ -55,6 +55,7 @@ content:
               - { name: title, label: Название, type: string }
               - { name: format, label: Формат (например, «в группе»), type: string }
               - { name: text, label: Описание, type: text }
+          - { name: photos, label: Фото под списком (лучше 3), type: image, list: true, options: { media: photos } }
 
       - name: process
         label: Как проходят тренировки

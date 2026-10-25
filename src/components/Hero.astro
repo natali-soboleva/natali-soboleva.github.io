@@ -18,11 +18,9 @@ const [first, ...rest] = hero.name.split(' ');
         <span class="block">{first}</span>
         <span class="block">{rest.join(' ')}</span>
       </h1>
-      <p class="font-script mt-3 text-[1.7rem] text-taupe sm:text-3xl">{hero.role}</p>
+      <p class="font-script mt-3 text-[1.7rem] text-plum sm:text-3xl">{hero.role}</p>
 
-      <p class="mx-auto mt-8 hidden max-w-sm font-display text-2xl leading-snug italic md:mx-0 md:block">
-        «{hero.motto}»
-      </p>
+      {hero.motto && <p class="mx-auto mt-8 hidden max-w-sm font-display text-2xl leading-snug italic md:mx-0 md:block">«{hero.motto}»</p>}
       <div class="mt-10 hidden md:block">
         <Button href={instagramDirect(contacts.instagram)} external>{hero.button}</Button>
       </div>
@@ -46,8 +44,8 @@ const [first, ...rest] = hero.name.split(' ');
     </div>
 
     <div class="text-center md:hidden">
-      <p class="mx-auto max-w-xs font-display text-[1.45rem] leading-snug italic">«{hero.motto}»</p>
-      <div class="mt-8">
+      {hero.motto && <p class="mx-auto mb-8 max-w-xs font-display text-[1.45rem] leading-snug italic">«{hero.motto}»</p>}
+      <div>
         <Button href={instagramDirect(contacts.instagram)} external class="w-full max-w-xs">{hero.button}</Button>
       </div>
     </div>

@@ -23,7 +23,7 @@ const ogImage = new URL('/og-image.jpg', Astro.site).href;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {(settings.hideFromSearch || notFound) && <meta name="robots" content="noindex" />}
-    <meta name="theme-color" content="#F4F0EA" />
+    <meta name="theme-color" content="#F1ECF6" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     {!notFound && <link rel="canonical" href={canonical} />}
@@ -52,7 +52,7 @@ const ogImage = new URL('/og-image.jpg', Astro.site).href;
     </a>
     {
       settings.draftNotice && settings.draftNoticeText && (
-        <div role="note" class="bg-taupe-dark px-4 py-2 text-center text-xs leading-snug font-normal text-paper sm:text-sm">
+        <div role="note" class="bg-plum-dark px-4 py-2 text-center text-xs leading-snug font-normal text-paper sm:text-sm">
           {settings.draftNoticeText}
         </div>
       )
