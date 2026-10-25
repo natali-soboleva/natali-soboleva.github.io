@@ -3,14 +3,14 @@
     "name": "Наталья Соболева",
     "role": "тренер тренажёрного зала",
     "motto": "",
-    "photo": "/src/assets/photos/hero.jpg",
+    "photo": "/src/assets/photos/hero-profile.jpg",
     "button": "Записаться"
   },
   "about": {
     "show": true,
     "title": "Обо мне",
     "subtitle": "about me",
-    "photo": "/src/assets/photos/about-profile.jpg",
+    "photo": "/src/assets/photos/trainings-1.jpg",
     "paragraphs": [
       "Привет! Меня зовут Наталья, я тренер тренажёрного зала в фитнес-клубе SportFamily в Витебске.",
       "Помогу подобрать тренировки под вашу цель и уровень подготовки — и тем, кто только начинает, и тем, кто занимается давно."
@@ -43,7 +43,7 @@
       }
     ],
     "photos": [
-      "/src/assets/photos/trainings-1.jpg",
+      "/src/assets/photos/trainings-4.jpg",
       "/src/assets/photos/trainings-2.jpg",
       "/src/assets/photos/trainings-3.jpg"
     ]
@@ -66,11 +66,7 @@
         "text": "Занимаемся в зале, шаг за шагом двигаясь к вашей цели."
       }
     ],
-    "photos": [
-      "/src/assets/photos/training-1.jpg",
-      "/src/assets/photos/training-2.jpg",
-      "/src/assets/photos/training-3.jpg"
-    ]
+    "photos": []
   },
   "video": {
     "show": true,
